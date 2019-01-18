@@ -1,0 +1,18 @@
+server: 
+  context-path: /management
+  port: 8081
+  tomcat: 
+    max-threads: 500
+    acceptCount: 100
+    maxConnections: 500
+  connection-timeout: 30000
+
+info:
+  status: UP
+
+
+spring:
+  application: 
+    name: ota-management 
+  profiles:
+    active: dev

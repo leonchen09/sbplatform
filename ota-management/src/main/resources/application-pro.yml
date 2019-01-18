@@ -1,0 +1,50 @@
+profile: pro
+
+server: 
+  port: 8911
+  
+logging: 
+  path: /mnt/log/battery
+
+spring:  
+  profiles: pro
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    name: master
+    url: jdbc:mysql://localhost:1024/ota_service?useSSL=false&allowMultiQueries=true&characterEncoding=utf8
+    username: wayc01
+    password: kCuRezT9UNHoNSslqBKEOQ==
+    # 使用druid数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 800
+    initialSize: 20
+    maxWait: 60000
+    minIdle: 20
+    timeBetweenEvictionRunsMillis: 3600000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 150
+    maxPoolPreparedStatementPerConnectionSize: 150
+    defaultAutoCommit: false
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.battery.core.models
+  
+# redis配置
+redis: 
+  host: 127.0.0.1
+  port: 8901
+  pass: root
+  max:
+    total: 300
+    idle: 100
+    waitMillis: 1000
+  test: 
+    on_borrow: true
