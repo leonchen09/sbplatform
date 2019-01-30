@@ -89,12 +89,12 @@ public class LoginController extends BaseController {
 //		}
 		String tokenStr = JwtHelper.createToken(user.getUserId().toString(),user.getUserType().toString());
 		user.setToken(tokenStr);
-//		List<Permissions> permissionList = permissionsSer.selectListByUserId(user.getUserId());
-//		permissionList = permissionList.stream().filter(p -> p.getPermissionSystem() == user.getUserType())
-//				.collect(Collectors.toList());
-//		Set<String> permissionCodeList = permissionList.stream().flatMap(p -> Stream.of(p.getPermissionCode()))
-//				.collect(Collectors.toSet());
-//		user.setPermissionCodeList(permissionCodeList);
+		List<Permissions> permissionList = permissionsSer.selectListByUserId(user.getUserId());
+		permissionList = permissionList.stream().filter(p -> p.getPermissionSystem() == user.getUserType())
+				.collect(Collectors.toList());
+		Set<String> permissionCodeList = permissionList.stream().flatMap(p -> Stream.of(p.getPermissionCode()))
+				.collect(Collectors.toSet());
+		user.setPermissionCodeList(permissionCodeList);
 //		//将通过用户返回公司放到user里面
 //		List<Map<String, String>> companyList = companySer.selectCompany1ById(user.getCompanyId());
 //		if(companyList.size() != 0) {

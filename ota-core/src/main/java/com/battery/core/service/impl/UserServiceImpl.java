@@ -15,15 +15,7 @@ import com.battery.core.service.UserService;
 public class UserServiceImpl extends BaseServiceImpl<User, Integer> implements UserService {
     @Autowired
     UserMapper userMapper;
-    @Autowired
-    UserService userSer;
-    
-    @Autowired
-    CompanyMapper companyMapper;
-    
-    @Autowired
-    GprsDeviceTypeMapper gprsDeviceTypeMapper;
-    
+
     @Autowired
     RolesMapper rolesMapper;
     
@@ -46,8 +38,6 @@ public class UserServiceImpl extends BaseServiceImpl<User, Integer> implements U
 				//更新所有表中的createName
 				String createName = user.getUserName();
 				Integer createId = user.getUserId();
-				companyMapper.updateCreateNameByUserId(createName, createId);
-				gprsDeviceTypeMapper.updateCreateNameByUserId(createName, createId);
 				rolesMapper.updateCreateNameByUserId(createName, createId);
 				userMapper.updateCreateNameByUserId(createName, createId);
 		}

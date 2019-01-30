@@ -5,7 +5,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     name: master
-    url: jdbc:mysql://192.168.31.223:1024/ota_service?useSSL=false
+    url: jdbc:mysql://192.168.31.121:1024/ota_service?useSSL=false
     username: amplifi
     password: amplifiPL
     # 使用druid数据源

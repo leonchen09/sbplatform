@@ -20,7 +20,7 @@ public class JwtHelper {
 	final private static String issuer = "station";
 	final private static String secret = "^%^&*HBBKKGE$DDFGLMMMHGGR$$%^*U@@#$$%&Y**";
 	final private static Algorithm alg = Algorithm.HS256;//加密算法
-	final private static long expSec = 60*30;//token超时时间，单位秒，默认30分钟，60＊30
+	final private static long expSec = 30*60;//token超时时间，单位秒，默认30分钟，60＊30
 	
 	//final private static JWTSigner signer = new JWTSigner(secret);
 	//private static JWTVerifier verifier = new JWTVerifier(secret);
@@ -97,7 +97,7 @@ public class JwtHelper {
 		
 		System.out.println(map.get("type"));
 		
-		System.out.print(createToken("admin","1"));
+		System.out.print(createToken("1","1"));
 	}
 	
 	/**
