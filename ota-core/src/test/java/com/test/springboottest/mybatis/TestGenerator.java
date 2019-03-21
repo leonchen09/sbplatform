@@ -19,14 +19,14 @@ public class TestGenerator {
 
     public static void before() {
         //读取mybatis参数
-        configFile = new File("E:\\Workspace\\battery\\battery-core\\src\\main\\resources\\generator\\generatorConfig.xml");
+        configFile = new File("E:\\sourcecode\\sbplatform\\ota-core\\src\\main\\resources\\generator\\generatorConfig.xml");
 
 //        configFile = new File("/Users/zhangsiyuan/Documents/MybatisFun/Mybatis-Chapter9-GeneratorPlugin/src/main/resources/mybatisConfig.xml");
     }
     
     public static void main(String[] args) throws IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException {
     	before();
-        List<String> warnings = new ArrayList<String>();
+    	List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(configFile);

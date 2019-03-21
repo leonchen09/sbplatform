@@ -20,10 +20,6 @@ import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.config.MergeConstants;
 import org.mybatis.generator.config.PropertyRegistry;
 
-/**
- * mybatis generator 自定义comment生成器. 基于MBG 1.3.2.
- * @author zhangjia
- */
 public class MyCommentGenerator implements CommentGenerator {
 
 	private Properties properties;

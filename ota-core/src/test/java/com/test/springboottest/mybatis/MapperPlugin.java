@@ -33,7 +33,7 @@ public class MapperPlugin extends PluginAdapter {
 	private String daoSuperClass;
 
 	// 扩展
-	private String expandDaoTargetPackage;
+	private String expandDaoTargetPackage = "yes";
 	private String expandDaoSuperClass;
 
 	private ShellCallback shellCallback = null;
@@ -210,25 +210,26 @@ public class MapperPlugin extends PluginAdapter {
 						e.printStackTrace();
 					}
 				}
-			} else if (!shortName.endsWith("Example")) { // CRUD Mapper
-				Interface mapperInterface = new Interface(daoTargetPackage + "." + shortName + "Mapper");
-
-				mapperInterface.setVisibility(JavaVisibility.PUBLIC);
-				mapperInterface.addJavaDocLine("/**");
-				mapperInterface.addJavaDocLine(" * 由MyBatis Generator工具自动生成，请不要手动修改");
-				mapperInterface.addJavaDocLine(" */");
-
-				FullyQualifiedJavaType daoSuperType = new FullyQualifiedJavaType(daoSuperClass);
-				// 添加泛型支持
-				daoSuperType.addTypeArgument(baseModelJavaType);
-				mapperInterface.addImportedType(baseModelJavaType);
-				mapperInterface.addImportedType(daoSuperType);
-				mapperInterface.addSuperInterface(daoSuperType);
-
-				mapperJavafile = new GeneratedJavaFile(mapperInterface, daoTargetDir, javaFormatter);
-				mapperJavaFiles.add(mapperJavafile);
-
 			}
+//			else if (!shortName.endsWith("Example")) { // CRUD Mapper
+//				Interface mapperInterface = new Interface(daoTargetPackage + "." + shortName + "Mapper");
+//
+//				mapperInterface.setVisibility(JavaVisibility.PUBLIC);
+//				mapperInterface.addJavaDocLine("/**");
+//				mapperInterface.addJavaDocLine(" * 由MyBatis Generator工具自动生成，请不要手动修改");
+//				mapperInterface.addJavaDocLine(" */");
+//
+//				FullyQualifiedJavaType daoSuperType = new FullyQualifiedJavaType(daoSuperClass);
+//				// 添加泛型支持
+//				daoSuperType.addTypeArgument(baseModelJavaType);
+//				mapperInterface.addImportedType(baseModelJavaType);
+//				mapperInterface.addImportedType(daoSuperType);
+//				mapperInterface.addSuperInterface(daoSuperType);
+//
+//				mapperJavafile = new GeneratedJavaFile(mapperInterface, daoTargetDir, javaFormatter);
+//				mapperJavaFiles.add(mapperJavafile);
+//
+//			}
 		}
 		return mapperJavaFiles;
 	}
