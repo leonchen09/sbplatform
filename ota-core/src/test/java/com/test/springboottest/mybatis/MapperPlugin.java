@@ -80,6 +80,9 @@ public class MapperPlugin extends PluginAdapter {
 		interfaze.addSuperInterface(fqjt);// 添加 extends BaseMapper<User>
 		interfaze.addImportedType(imp);// 添加import com.battery.common.mapper.BaseMapper;
 		interfaze.getMethods().clear();
+		interfaze.addJavaDocLine("/**");
+		interfaze.addJavaDocLine(" * 由MyBatis Generator工具自动生成，请不要手动修改");
+		interfaze.addJavaDocLine(" */");
 		return true;
 	}
 
